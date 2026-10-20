@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+class Conversor {
+public:
+    double convertir(double kilometros) {
+        return kilometros * 1000;
+    }
+
+    double convertir(int kilogramos) {
+        return kilogramos * 1000;
+    }
+
+    double convertir(double grados, char escala) {
+        if (escala == 'F')
+            return grados * 9 / 5 + 32;
+
+        if (escala == 'C')
+            return (grados - 32) * 5 / 9;
+
+        return grados;
+    }
+};
