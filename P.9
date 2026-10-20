@@ -1,0 +1,29 @@
+#include <iostream>
+using namespace std;
+
+class Persona {
+public:
+    string nombre;
+    int edad;
+
+    Persona(string n, int e) {
+        nombre = n;
+        edad = e;
+    }
+};
+
+class Comparador {
+public:
+    bool comparar(int a, int b) {
+        return a == b;
+    }
+
+    bool comparar(string a, string b) {
+        return a == b;
+    }
+
+    bool comparar(Persona a, Persona b) {
+        return a.nombre == b.nombre &&
+               a.edad == b.edad;
+    }
+};
