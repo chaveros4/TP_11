@@ -1,0 +1,50 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Libro {
+public:
+    string titulo;
+    int paginas;
+
+    Libro(string t, int p) {
+        titulo = t;
+        paginas = p;
+    }
+};
+
+class Biblioteca {
+private:
+    vector<Libro> libros;
+
+public:
+    void agregar(Libro l) {
+        libros.push_back(l);
+    }
+
+    void eliminar(string t) {
+        for (int i = 0; i < libros.size(); i++) {
+            if (libros[i].titulo == t) {
+                libros.erase(libros.begin() + i);
+                return;
+            }
+        }
+    }
+
+    void buscar(string t) {
+        for (Libro l : libros) {
+            if (l.titulo == t) {
+                cout << "Libro encontrado: " << l.titulo << endl;
+                return;
+            }
+        }
+        cout << "Libro no encontrado" << endl;
+    }
+
+    int totalPaginas() {
+        int total = 0;
+        for (Libro l : libros)
+            total += l.paginas;
+        return total;
+    }
+};
