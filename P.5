@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+class Vehiculo {
+public:
+    string marca, modelo;
+    int anio;
+
+    Vehiculo(string m, string mo, int a) {
+        marca = m;
+        modelo = mo;
+        anio = a;
+    }
+};
+
+class Coche : public Vehiculo {
+public:
+    int puertas;
+
+    Coche(string m, string mo, int a, int p)
+        : Vehiculo(m, mo, a) {
+        puertas = p;
+    }
+};
+
+class Motocicleta : public Vehiculo {
+public:
+    int cilindrada;
+
+    Motocicleta(string m, string mo, int a, int c)
+        : Vehiculo(m, mo, a) {
+        cilindrada = c;
+    }
+};
+
+class Camion : public Vehiculo {
+public:
+    double capacidadCarga;
+
+    Camion(string m, string mo, int a, double c)
+        : Vehiculo(m, mo, a) {
+        capacidadCarga = c;
+    }
+};
