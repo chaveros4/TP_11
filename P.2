@@ -1,0 +1,41 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Mesa {
+public:
+    int comensales;
+    bool ocupada;
+
+    Mesa(int c) {
+        comensales = c;
+        ocupada = false;
+    }
+};
+
+class Restaurante {
+private:
+    vector<Mesa> mesas;
+
+public:
+    void agregarMesa(int c) {
+        mesas.push_back(Mesa(c));
+    }
+
+    void reservar(int n) {
+        if (n >= 0 && n < mesas.size())
+            mesas[n].ocupada = true;
+    }
+
+    void liberar(int n) {
+        if (n >= 0 && n < mesas.size())
+            mesas[n].ocupada = false;
+    }
+
+    int mesasLibres() {
+        int total = 0;
+        for (Mesa m : mesas)
+            if (!m.ocupada) total++;
+        return total;
+    }
+};
