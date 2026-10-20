@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class Empleado {
+public:
+    string nombre, departamento;
+    double salario;
+
+    Empleado(string n, double s, string d) {
+        nombre = n;
+        salario = s;
+        departamento = d;
+    }
+};
+
+class Empresa {
+private:
+    vector<Empleado> empleados;
+
+public:
+    void agregar(Empleado e) {
+        empleados.push_back(e);
+    }
+
+    double nominaTotal() {
+        double total = 0;
+        for (Empleado e : empleados)
+            total += e.salario;
+        return total;
+    }
+
+    void mayorSalario() {
+        if (empleados.empty()) return;
+
+        Empleado mayor = empleados[0];
+        for (Empleado e : empleados)
+            if (e.salario > mayor.salario)
+                mayor = e;
+
+        cout << mayor.nombre << " cobra " << mayor.salario << endl;
+    }
+
+    void listarDepartamento(string d) {
+        for (Empleado e : empleados)
+            if (e.departamento == d)
+                cout << e.nombre << endl;
+    }
+};
