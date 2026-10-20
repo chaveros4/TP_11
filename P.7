@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+class Calculadora {
+public:
+    int sumar(int a, int b) {
+        return a + b;
+    }
+
+    double sumar(double a, double b) {
+        return a + b;
+    }
+
+    int restar(int a, int b) {
+        return a - b;
+    }
+
+    double restar(double a, double b) {
+        return a - b;
+    }
+
+    int multiplicar(int a, int b) {
+        return a * b;
+    }
+
+    double multiplicar(double a, double b) {
+        return a * b;
+    }
+
+    double dividir(double a, double b) {
+        if (b == 0) return 0;
+        return a / b;
+    }
+
+    double dividir(int a, int b) {
+        if (b == 0) return 0;
+        return (double)a / b;
+    }
+};
